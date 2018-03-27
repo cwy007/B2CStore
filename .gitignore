@@ -21,3 +21,5 @@
 config/database.yml
 
 /tutorial/*
+
+erd.pdf
