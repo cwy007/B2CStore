@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_many :product_images, -> { order(weight: 'desc') },
+    dependent: :destroy
 
   validates :category_id, presence: { message: "分类不能为空" }
   validates :title, presence: { message: "名称不能为空" }

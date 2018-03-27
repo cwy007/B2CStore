@@ -23,3 +23,5 @@ config/database.yml
 /tutorial/*
 
 erd.pdf
+
+public/system/*
