@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     root 'sessions#new'
     resources :sessions, only: [:new]
     resources :categories
+    resources :products 
   end
 end
