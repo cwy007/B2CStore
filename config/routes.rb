@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'sessions#new'
     resources :sessions, only: [:new]
-    resources :categories, only: [:index, :new]
+    resources :categories
   end
 end
