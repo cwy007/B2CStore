@@ -25,3 +25,4 @@ config/database.yml
 erd.pdf
 
 public/system/*
+public/images/seed/*

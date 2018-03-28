@@ -11,7 +11,6 @@ class Admin::ProductImagesController < Admin::BaseController
     end
 
     redirect_back(fallback_location: root_path)
-
   end
 
   def destroy
@@ -23,7 +22,6 @@ class Admin::ProductImagesController < Admin::BaseController
     end
 
     redirect_back(fallback_location: root_path)
-
   end
 
   def update
@@ -36,7 +34,6 @@ class Admin::ProductImagesController < Admin::BaseController
     end
 
     redirect_back(fallback_location: root_path)
-
   end
 
   private

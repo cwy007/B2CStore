@@ -1,7 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "public/images/seed/#{file_name}.jpeg"))
+end
+
+# 新建一个user账户
+User.create(
+  email: "admin@example.com",
+  password: 123456,
+  password_confirmation: 123456
+)
+puts "create an user."
+
+# 初始化类别，商品和商品图片
+5.times do |i|
+  # 新建5个一级分类
+  category = Category.create(
+    title: "#{i} " + Faker::Lorem.word
+  )
+  # 为每个一级分类新建3个二级分类
+  3.times do |ii|
+    sub_category = category.children.create(
+      title: "#{i}.#{ii}" + Faker::Lorem.word
+    )
+    # 为每个二级分类新建3个商品
+    3.times do |iii|
+      product = sub_category.products.create(
+        title: "#{i}.#{ii}.#{iii} " + Faker::Lorem.word,
+        description: Faker::Lorem.paragraph,
+        status: ["on", "off"].sample,
+        msrp: rand(100..120),
+        price: rand(80..100)
+      )
+      # 为每个商品新建3张图片
+      3.times do |iiii|
+        product.product_images.create(
+          image: seed_image("movies")
+        )
+      end
+    end
+  end
+end
+puts "create faker data for categories, products and product images."

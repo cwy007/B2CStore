@@ -2,7 +2,9 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :product_images, -> { order(weight: 'desc') },
     dependent: :destroy
-
+  has_one :main_product_image, -> { order(weight: 'desc') },
+    class_name: ProductImage
+    
   validates :category_id, presence: { message: "分类不能为空" }
   validates :title, presence: { message: "名称不能为空" }
   validates :status, inclusion: { in: %w[on off],
@@ -20,6 +22,8 @@ class Product < ApplicationRecord
   validates :description, presence: { message: "描述不能为空" }
 
   before_create :set_default_attrs
+
+  scope :onshelf, -> { where(status: Status::On) }
 
   module Status
     On = 'on'

@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180327145651) do
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["status", "category_id"], name: "index_products_on_status_and_category_id"
     t.index ["title"], name: "index_products_on_title"
-    t.index ["uuid"], name: "index_products_on_uuid"
+    t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
