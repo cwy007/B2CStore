@@ -39,6 +39,12 @@ class ShoppingCartsController < ApplicationController
     redirect_to shopping_carts_path
   end
 
+  def clear
+    @shopping_carts = ShoppingCart.by_user_uuid(session[:user_uuid])
+    @shopping_carts.destroy_all if @shopping_carts
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
     def find_shopping_cart

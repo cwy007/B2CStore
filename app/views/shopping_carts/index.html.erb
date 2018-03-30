@@ -1,5 +1,10 @@
 <h1>购物车 (<%= @shopping_carts.count %>)</h1>
 
+<p class="pull-right">
+  <%= link_to "清空购物车", clear_shopping_carts_path, method: :delete, style: "text-decoration: underline" %>
+</p>
+<div class="clearfix"></div>
+
 <div class="row">
   <div class="container">
     <div class="alert alert-info">
