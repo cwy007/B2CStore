@@ -20,10 +20,13 @@
               数量: <%= shopping_cart.amount %> 价格: ¥<%= shopping_cart.amount * shopping_cart.product.price %>
             </div>
             <div class="media-right">
-              <p><%= shopping_cart.amount %></p>
-              <p>
-                <%= link_to "删除", shopping_cart_path(shopping_cart), method: :delete, 'data-confirm': "不考虑一下了?", class: "btn btn-default btn-xs" %>
-              </p>
+              <%= form_tag shopping_cart_path(shopping_cart), method: :put do %>
+                <p><input type="text" name="amount" value="<%= shopping_cart.amount %>" /></p>
+                <p>
+                  <%= submit_tag "更新", class: "btn btn-default btn-xs" %>
+                  <%= link_to "删除", shopping_cart_path(shopping_cart), method: :delete, 'data-confirm': "不考虑一下了?", class: "btn btn-default btn-xs" %>
+                </p>
+              <% end -%>
             </div>
           </div>
         <% end -%>

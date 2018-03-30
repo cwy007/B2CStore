@@ -1,4 +1,5 @@
 class ShoppingCartsController < ApplicationController
+  before_action :find_shopping_cart, only: [:update, :destroy]
 
   def index
     fetch_home_data
@@ -19,5 +20,30 @@ class ShoppingCartsController < ApplicationController
 
     render layout: false  # 不实用layout，返回的数据只是对应的 erb 文件中的内容
   end
+
+
+  def update
+    if @shopping_cart
+      amount = params[:amount].to_i
+      amount = amount <= 0 ? 1 : amount
+
+      @shopping_cart.update_attribute :amount, amount
+    end
+
+    redirect_to shopping_carts_path
+  end
+
+  def destroy
+    @shopping_cart.destroy if @shopping_cart
+
+    redirect_to shopping_carts_path
+  end
+
+  private
+
+    def find_shopping_cart
+      @shopping_cart = ShoppingCart.by_user_uuid(session[:user_uuid])
+        .where(id: params[:id]).first
+    end
 
 end
