@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :addresses, -> { where(address_type: Address::AddressType::User).order("id desc") }
   belongs_to :default_address, class_name: :Address
+  has_many :orders
 
   validates_presence_of :email, message: "邮箱不能为空"
   validates_format_of :email, message: "邮箱格式不合法",
