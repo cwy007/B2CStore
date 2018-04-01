@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :product
   belongs_to :address
+  belongs_to :payment
 
   validates :user_id, presence: true
   validates :product_id, presence: true
@@ -33,6 +34,16 @@ class Order < ApplicationRecord
       shopping_carts.map(&:destroy!)
     end
   end
+
+  module OrderStatus
+    Initial = 'initial'
+    Paid = 'paid'
+  end
+
+  def is_paid?
+    self.status == OrderStatus::Paid
+  end
+
 
   private
 
