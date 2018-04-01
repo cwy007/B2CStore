@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :product
   belongs_to :address
-  belongs_to :payment
+  belongs_to :payment, optional: true 
 
   validates :user_id, presence: true
   validates :product_id, presence: true
@@ -35,7 +35,7 @@ class Order < ApplicationRecord
       shopping_carts.map(&:destroy!)
     end
 
-    orders 
+    orders
   end
 
   module OrderStatus

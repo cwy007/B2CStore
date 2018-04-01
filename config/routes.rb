@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   resources :orders
   resources :payments, only: [:index] do
     collection do
-      get :generate_pay 
+      get :generate_pay
+      get :pay_return
+      get :pay_notify
+      get :success
+      get :failed
     end
   end
 

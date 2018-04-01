@@ -19,7 +19,7 @@ module MasterRailsByActions
     config.generators do |generator|
       generator.assets false
       generator.test_framework false
-      generator.skip_routes true 
+      generator.skip_routes true
     end
 
   end
