@@ -1,4 +1,20 @@
 (function() {
+  // 生成订单
+  $('.create-order-form').submit(function() {
+    var addressID = $('input[name="address_id"]:checked').val(),
+        $form = $(this);
+
+    // 但在事件函数中，return false表示不执行事件的响应函数
+    // 但在事件函数中，return true不起任何作用，响应函数会继续执行
+    if (!addressID) {
+      alert("请选择收货地址!");
+      return false;
+    } else {
+      $form.find('input[name="address_id"]').val(addressID);
+      return true;
+    }
+  })
+
   //收货地址
   $(document).on('click', '.new-address-btn', function() {
     $.get('/addresses/new', function(data) {
