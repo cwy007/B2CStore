@@ -1,5 +1,44 @@
 (function() {
+  //收货地址
+  $(document).on('click', '.new-address-btn', function() {
+    $.get('/addresses/new', function(data) {
+      if ($('#address_form_modal').length > 0) {
+        $('#address_form_modal').remove();
+      }
 
+      $('body').append(data);
+      $('#address_form_modal').modal();
+    })
+
+    return false;
+  })
+  .on('ajax:success', '.address-form', function(e) {
+    var status = e.detail[0].status;
+    var data = e.detail[0].data;
+    if (status == 'ok') {
+      $('#address_form_modal').modal('hide');
+      $('#address_list').html(data);
+    } else {
+      $('#address_form_modal').html($(data).html());
+    }
+  })
+  .on('ajax:success', '.edit-address-btn', function(e) {
+    var status = e.detail[0].status;
+    var data = e.detail[0].data;
+    if ($('#address_form_modal').length > 0) {
+      $('#address_form_modal').remove();
+    }
+
+    $('body').append(data);
+    $('#address_form_modal').modal();
+  })
+
+  .on('ajax:success', '.set-default-address-btn, .remove-address-btn', function(e) {
+    var data = e.detail[0].data;
+    $('#address_list').html(data);
+  })
+
+  // 购物车
   $('.add-to-cart-btn').on('click', function() {
     // 变量名区分大小写，允许包含字母、数字、美元符号($)和下划线，但第一个字符不允许是数字，不允许包含空格和其他标点符号
     var $this = $(this),
