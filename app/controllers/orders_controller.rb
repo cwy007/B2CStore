@@ -8,7 +8,16 @@ class OrdersController < ApplicationController
   end
 
   def create
+    shopping_carts = ShoppingCart.by_user_uuid(current_user.uuid).includes(:product)
+    if shopping_carts.blank?
+      redirect_to shopping_carts_path
+      return
+    end
 
+    address = current_user.addresses.find(params[:address_id])
+    Order.create_order_from_shopping_carts!(current_user, address, shopping_carts)
+
+    redirect_to payments_path
   end
-
+  
 end
