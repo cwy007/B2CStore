@@ -17,13 +17,14 @@ class Order < ApplicationRecord
     shopping_carts.flatten!
     address_attrs = address.attributes.except!("id", "created_at", "updated_at")
 
+    orders = []
     transaction do
       order_address = user.addresses.create!(address_attrs.merge(
         "address_type" => Address::AddressType::Order
       ))
 
       shopping_carts.each do |shopping_cart|
-        user.orders.create!(
+        orders << user.orders.create!(
           product: shopping_cart.product,
           address: order_address,
           amount: shopping_cart.amount,
@@ -33,6 +34,8 @@ class Order < ApplicationRecord
 
       shopping_carts.map(&:destroy!)
     end
+
+    orders 
   end
 
   module OrderStatus
