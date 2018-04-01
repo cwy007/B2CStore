@@ -10,8 +10,12 @@ Rails.application.routes.draw do
       delete :clear
     end
   end
-  resources :addresses
-  resources :orders 
+  resources :addresses do
+    member do
+      put :set_default_address
+    end
+  end
+  resources :orders
 
   namespace :admin do
     root 'sessions#new'
