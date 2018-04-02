@@ -2,7 +2,7 @@ module SendSMS
   class << self
 
     # 短信后缀，不同的网站发送信息都有不同的短信后缀
-    MESSAGE_SUFFIX = "【蛋人商城】"
+    MESSAGE_SUFFIX = "【B2C商城】"
 
     SMS_API_KEY = ENV['SMS_API_KEY']
     SMS_SEND_URL = "https://sms-api.luosimao.com/v1/send.json"
