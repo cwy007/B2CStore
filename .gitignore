@@ -22,8 +22,6 @@ config/database.yml
 
 /tutorial/*
 
-erd.pdf
-
 public/system/*
 
 # Ignore application configuration
