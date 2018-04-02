@@ -28,7 +28,7 @@ class User < ApplicationRecord
   validate :validate_email_or_cellphone, on: :create
 
   def username
-    self.email.split('@').first
+    self.email.blank? ? self.cellphone : self.email.split('@').first
   end
 
   private

@@ -192,8 +192,8 @@ Rails.application.config.sorcery.configure do |config|
     # specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
     #
-    # user.username_attribute_names =
-
+    user.username_attribute_names = [:email, :cellphone]
+    
     # change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
     #
@@ -314,7 +314,7 @@ Rails.application.config.sorcery.configure do |config|
     # do you want to prevent or allow users that did not activate by email to login?
     # Default: `true`
     #
-    user.prevent_non_active_users_to_login = false 
+    user.prevent_non_active_users_to_login = false
 
     # -- reset_password --
     # reset password code attribute name.
