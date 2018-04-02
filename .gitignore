@@ -22,10 +22,7 @@ config/database.yml
 
 /tutorial/*
 
-erd.pdf
-
 public/system/*
-public/images/seed/*
 
 # Ignore application configuration
 /config/application.yml
