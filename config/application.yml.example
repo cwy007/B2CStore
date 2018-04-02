@@ -16,3 +16,4 @@ development:
   ALIPAY_URL: = 'https://mapi.alipay.com/gateway.do'
   ALIPAY_RETURN_URL: = 'http://localhost:3000/payments/pay_return'
   ALIPAY_NOTIFY_URL: = 'http://localhost:3000/payments/pay_notify'
+  SMS_API_KEY: 'YOUR-LUOSIMAO-API-KEY'
