@@ -1,6 +1,14 @@
 # B2C商城开发
 
-Demo地址: http://rails5-b2c.eggman.tv
+Demo地址: https://b2cstore.herokuapp.com/
+
+an admin count
+```
+email: admin@example.com
+password: 123456
+
+https://b2cstore.herokuapp.com/admin
+```
 
 ```
 gitclone git@github.com:cwy007/B2CStore.git
