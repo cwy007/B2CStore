@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+source 'https://gems.ruby-china.com'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -36,7 +36,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem "paperclip", "~> 6.0.0"
 gem "rest-client"
 gem "figaro"
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'faker'
 
 group :development, :test do
   # Use mysql as the database for Active Record

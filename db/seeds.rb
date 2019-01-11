@@ -2,6 +2,11 @@ def seed_image(file_name)
   File.open(File.join(Rails.root, "public/images/seed/#{file_name}.jpeg"))
 end
 
+User.delete_all
+Category.delete_all
+Product.delete_all
+ProductImage.delete_all
+
 # 新建一个user账户
 User.create(
   email: "admin@example.com",
