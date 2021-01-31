@@ -68,7 +68,7 @@ Make sure that `gem install therubyracer -v '0.12.3' --source 'https://gems.ruby
 ## 解决方法
 
 ```bash
-sudo gem install therubyracer -v '0.12.3' --source 'https://gems.ruby-china.com/' -- --with-v8-dir=/usr/local/opt/v8@3.15
+gem install therubyracer -v '0.12.3' --source 'https://gems.ruby-china.com/' -- --with-v8-dir=/usr/local/opt/v8@3.15
 ```
 
 ## 参考链接
