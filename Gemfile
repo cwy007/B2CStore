@@ -38,6 +38,7 @@ gem "paperclip", "~> 6.0.0"
 gem "rest-client"
 gem "figaro"
 gem 'faker'
+gem 'awesome_rails_console', '~> 0.4.4'
 
 group :development, :test do
   # Use mysql as the database for Active Record
@@ -68,4 +69,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg'
+end
+
+# Please clean up duplicated gems if any.
+# Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode-steakknife', require: 'hirb-unicode'
+  gem 'pry-stack_explorer'
+  gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug', '~> 3.7'
 end
