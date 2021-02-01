@@ -34,7 +34,12 @@ gem 'font-awesome-rails'
 gem 'sorcery'
 gem 'ancestry'
 gem 'will_paginate', '~> 3.1.0'
-gem "paperclip", "~> 6.0.0"
+# gem "paperclip", "~> 6.0.0"
+# gem 'paperclip-qiniu', '~> 0.2.0'
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem 'carrierwave-qiniu', '~> 1.1.5'
+gem 'qiniu', '>= 6.9.0'
 gem "rest-client"
 gem "figaro"
 gem 'faker'
