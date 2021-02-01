@@ -1,16 +1,17 @@
 # B2C商城开发
 
-Demo地址: https://b2cstore.herokuapp.com/
+Demo地址: <https://b2cstore.herokuapp.com/>
 
 an admin count
-```
+
+```bash
 email: admin@example.com
 password: 123456
 
 https://b2cstore.herokuapp.com/admin
 ```
 
-```
+```bash
 gitclone git@github.com:cwy007/B2CStore.git
 cd B2CStore
 bundle
@@ -20,7 +21,8 @@ rails s
 http://localhost:3000
 ```
 
-# 项目介绍
+## 项目介绍
+
 该项目基于Rails 5，实现的功能就是传统的B2C电商平台中常用的功能，包括:
 
 - 用户注册登录（支持手机验证码或者邮箱）
@@ -36,12 +38,12 @@ http://localhost:3000
 
 - ruby 2.4.2
 - rails 5.1.5
-- mysql  
+- mysql
 
 前台框架:
 
 - bootstrap
-- font-awesome  
+- font-awesome
 
 涉及到的主要Gem:
 
@@ -56,6 +58,24 @@ http://localhost:3000
 - ruby和rails的初学者
 - 想从产品或者技术角度学习电商平台核心设计功能的同学
 
-# 外部链接
+## 外部链接
 
 项目具体讲解请参考这里 **[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)**
+
+## 部署到 heroku
+
+[注册heroku账号](https://signup.heroku.com/)
+
+>`chanweiyan001@gmail.com`
+
+```bash
+heroku login -i
+heroku create
+figaro heroku:set -e production
+git push heroku master
+heroku run rake db:migrate
+heroku run rake db:seed
+heroku open
+
+heroku apps:rename newname
+```
