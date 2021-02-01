@@ -15,6 +15,11 @@ User.create(
 )
 puts "create an user."
 
+# c = Category.first
+# s_c = c.children.first
+# p = s_c.products.first
+# p.product_images.create(image: seed_image("movies"))
+
 # 初始化类别，商品和商品图片
 5.times do |i|
   # 新建5个一级分类

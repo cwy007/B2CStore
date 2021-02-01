@@ -1,6 +1,6 @@
 # B2C商城开发
 
-Demo地址: <https://b2cstore.herokuapp.com/>
+Demo地址: <https://b2c-store.herokuapp.com/>
 
 an admin count
 
